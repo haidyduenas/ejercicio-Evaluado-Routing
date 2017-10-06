@@ -106,7 +106,7 @@ class Cursos extends React.Component  {
 				<div>
 					<ul>
 						<li className ="curse media group">
-							<img class="course-img" src="https://achievement-images.teamtreehouse.com/bagdes_html_howtobuildawebsite_stage02.png" alt="course"/>
+							<img className="course-img" src="https://achievement-images.teamtreehouse.com/bagdes_html_howtobuildawebsite_stage02.png" alt="course"/>
 							<div>
 								<h3>How to make a Website</h3>
 								<p>If you’ve never built a website before and you have no coding or design experience,
@@ -117,7 +117,7 @@ class Cursos extends React.Component  {
 							</div>
 						</li>
 						<li className ="curse media group">
-						<img class="course-img" src="https://achievement-images.teamtreehouse.com/badges_html_forms_stage1.png" alt="course"/>
+						<img className="course-img" src="https://achievement-images.teamtreehouse.com/badges_html_forms_stage1.png" alt="course"/>
 							<div>
 								<h3>How to make a Website</h3>
 								<p>If you’ve never built a website before and you have no coding or design experience,
@@ -128,7 +128,7 @@ class Cursos extends React.Component  {
 							</div>
 						</li>
 						<li className ="curse media group">
-							<img class="course-img" src="https://achievement-images.teamtreehouse.com/badges-html-videoaudio-stage1.png" alt="course"/>
+							<img className="course-img" src="https://achievement-images.teamtreehouse.com/badges-html-videoaudio-stage1.png" alt="course"/>
 							<div>
 								<h3>HTML Video and Audio</h3>
 								<p>If you’ve never built a website before and you have no coding or design experience,
@@ -139,7 +139,7 @@ class Cursos extends React.Component  {
 							</div>
 						</li>
 						<li className ="curse media group">
-						<img class="course-img" src="https://achievement-images.teamtreehouse.com/badges-html-svg-stage1.png" alt="course"/>
+						<img className="course-img" src="https://achievement-images.teamtreehouse.com/badges-html-svg-stage1.png" alt="course"/>
 							<div>
 								<h3>SVG Basics</h3>
 								<p>If you’ve never built a website before and you have no coding or design experience,
@@ -150,7 +150,7 @@ class Cursos extends React.Component  {
 							</div>
 						</li>
 						<li className ="curse media group">
-						<img class="course-img" src="https://achievement-images.teamtreehouse.com/badges_intro_to_html_css_stage-01.png" alt="course"/>
+						<img className="course-img" src="https://achievement-images.teamtreehouse.com/badges_intro_to_html_css_stage-01.png" alt="course"/>
 							<div>
 								<h3>Responsive Images</h3>
 								<p>If you’ve never built a website before and you have no coding or design experience,
@@ -161,7 +161,7 @@ class Cursos extends React.Component  {
 							</div>
 						</li>
 						<li className ="curse media group">
-						<img class="course-img" src="https://achievement-images.teamtreehouse.com/badges_html_respimages_stage2.png" alt="course"/>
+						<img className="course-img" src="https://achievement-images.teamtreehouse.com/badges_html_respimages_stage2.png" alt="course"/>
 							<div>
 								<h3>Introduccion a Html y CSS </h3>
 								<p>If you’ve never built a website before and you have no coding or design experience,
@@ -194,8 +194,10 @@ class App extends React.Component  {
 			});
 		});
 	}
+
 	render() {
 		let Child;
+		let propsForcursos = null;
 		switch (this.state.route) {
 			case '/home':
 				Child = Home;
@@ -209,11 +211,23 @@ class App extends React.Component  {
 			case '/cursos':
 				Child = Cursos;
 				break;
+			case '/cursos/html':
+				Child = cursos;
+				propsForcursos = 'html';
+				break;
+			case '/cursos/css':
+				Child = Cursos;
+				propsForcursos = 'css';
+				break;
+			case '/cursos/javascript':
+				Child = Cursos;
+				propsForcursos = 'javascript';
+				break;
 			default:
 				Child = Home;
 		}
 		return (
-         <div className="data-reactroot container">
+			<div className="data-reactroot container">
            <header>
 		   <span className="icn-logo">
 				< i className="material-icons">code</i>
@@ -221,21 +235,26 @@ class App extends React.Component  {
                <ul className="main-nav">
 			   <li>
                      <a href="#/home">Home</a>
-                  </li>{' '}
+                  </li>
                   <li>
                      <a href="#/about">About</a>
-                  </li>{' '}
+                  </li>
 				  <li>
                      <a href="#/teachers">Teachers</a>
-                  </li>{' '}
+                  </li>
                   <li>
                      <a href="#/cursos">Cursos</a>
                   </li>
-               </ul>{' '}
-            <Child />{' '}
+               </ul>
+			   {
+	         	propsForcursos?
+			         <Child route = {propsForcursos} />
+		         :
+			         <Child />
+	         }
 			</header>{' '}
-         </div>
-		);
+			</div>
+		)
 	}
 }
  
