@@ -72,7 +72,7 @@ class Teachers extends React.Component {
 	}
 }
 
-class Cursos extends React.Component {
+class Courses extends React.Component {
 
 
 	render() {
@@ -238,11 +238,11 @@ class Cursos extends React.Component {
 		return (
 			<div className="main-content courses">
 				<div className="course-header group">
-					<h2>Cursos</h2>
+					<h2>Courses</h2>
 					<ul className="course-nav">
-						<li><a href='#/cursos/html'>HTML</a></li>
-						<li><a href='#/cursos/css'>CSS</a></li>
-						<li><a href='#/cursos/javascript'>JavaScript</a></li>
+						<li><a href='#/courses/html'>HTML</a></li>
+						<li><a href='#/courses/css'>CSS</a></li>
+						<li><a href='#/courses/javascript'>JavaScript</a></li>
 
 					</ul>
 
@@ -277,7 +277,7 @@ class App extends React.Component {
 
 	render() {
 		let Child;
-		let propsForcursos = null;
+		let propsForCourses = null;
 		switch (this.state.route) {
 			case '/home':
 				Child = Home;
@@ -288,20 +288,20 @@ class App extends React.Component {
 			case '/teachers':
 				Child = Teachers;
 				break;
-			case '/cursos':
-				Child = Cursos;
+			case '/courses':
+				Child = Courses;
 				break;
-			case '/cursos/html':
-				Child = Cursos;
-				propsForcursos = 'html';
+			case '/courses/html':
+				Child = Courses;
+				propsForCourses = 'html';
 				break;
-			case '/cursos/css':
-				Child = Cursos;
-				propsForcursos = 'css';
+			case '/courses/css':
+				Child = Courses;
+				propsForCourses = 'css';
 				break;
-			case '/cursos/javascript':
-				Child = Cursos;
-				propsForcursos = 'javascript';
+			case '/courses/javascript':
+				Child = Courses;
+				propsForCourses = 'javascript';
 				break;
 			default:
 				Child = Home;
@@ -323,14 +323,14 @@ class App extends React.Component {
 							<a href="#/teachers">Teachers</a>
 						</li>
 						<li>
-							<a href="#/cursos">Cursos</a>
+							<a href="#/courses">Courses</a>
 						</li>
 						
 					</ul>
 					</header>
 					{
-						propsForcursos ?
-							<Child route={propsForcursos} />
+						propsForCourses ?
+							<Child route={propsForCourses} />
 							:
 							<Child />
 					}
