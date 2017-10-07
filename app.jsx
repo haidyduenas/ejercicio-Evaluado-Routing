@@ -243,13 +243,17 @@ class Cursos extends React.Component {
 						<li><a href='#/cursos/html'>HTML</a></li>
 						<li><a href='#/cursos/css'>CSS</a></li>
 						<li><a href='#/cursos/javascript'>JavaScript</a></li>
+
 					</ul>
+
+				</div>
+				<div>
 					<ul>
 						{
 							CurrentList
 						}
 					</ul>
-				</div>
+					</div>
 			</div>
 		);
 	}
